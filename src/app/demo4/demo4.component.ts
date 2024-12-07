@@ -6,7 +6,7 @@ import { firstValueFrom } from 'rxjs';
 import { BarChart } from 'echarts/charts';
 
 echarts.use([BarChart]);
-
+console.log("demo4");
 @Component({
   selector: 'demo4',
   standalone: true,
