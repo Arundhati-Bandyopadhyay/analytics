@@ -51,6 +51,11 @@ menuItems=signal<MenuItem[]>([
     label:"Dashboard",
     route:"demo2"
 
+  },
+  {
+    icon:"view_array",
+    label:"Table Data",
+    route:"table"
   }
 ])
 }
