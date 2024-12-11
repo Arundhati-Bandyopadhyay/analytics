@@ -7,6 +7,7 @@ import { DemoComponent } from './demo/demo.component';
 import { Demo2Component } from './demo2/demo2.component';
 import { Demo4Component } from './demo4/demo4.component';
 import { DemotableComponent } from './demotable/demotable.component';
+import { Demotable2Component } from './demotable2/demotable2.component';
 
 export const routes: Routes = [
     {
@@ -19,6 +20,10 @@ export const routes: Routes = [
     {
         path:"demo4",
         component:Demo4Component
+    },
+    {
+        path:"demo5",
+        component:Demotable2Component
     },
     {
         path:"table",

@@ -36,6 +36,8 @@ export class DemotableComponent {
       const data1 = await firstValueFrom(this.apiService.fetchData()); 
       this.arraydata = data1;
       this.addListTableData = JSON.parse(JSON.stringify(this.arraydata));
+     // console.log(this.arraydata[0].Manufacturer);
+      
       this.dataSourceTableData = new MatTableDataSource(this.addListTableData);
       this.dataSourceTableData.paginator = this.paginatorFordata
       
