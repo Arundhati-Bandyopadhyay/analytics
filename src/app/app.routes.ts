@@ -8,6 +8,7 @@ import { Demo2Component } from './demo2/demo2.component';
 import { Demo4Component } from './demo4/demo4.component';
 import { DemotableComponent } from './demotable/demotable.component';
 import { Demotable2Component } from './demotable2/demotable2.component';
+import { FirebaseLoginComponent } from './firebase-login/firebase-login.component';
 
 export const routes: Routes = [
     {
@@ -28,5 +29,9 @@ export const routes: Routes = [
     {
         path:"table",
         component:DemotableComponent
+    },
+    {
+        path:"firebaselogin",
+        component:FirebaseLoginComponent
     }
 ];

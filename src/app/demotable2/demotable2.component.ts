@@ -32,6 +32,7 @@ interface IRow {
 
 
 export class Demotable2Component {
+  autoHeight = true;
   addListTableData : any[] = []
   arraydata: any[] = [];
   rowData: IRow[] = [];

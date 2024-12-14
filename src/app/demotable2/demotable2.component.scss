@@ -9,3 +9,8 @@
   .ag-cell {
     border: 1px solid gray;
   }
+  @media (max-width: 768px) {
+    .ag-theme-alpine .ag-header-cell-text {
+      font-size: 12px;
+    }
+  }

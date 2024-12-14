@@ -17,42 +17,14 @@ import {  MatSortModule} from '@angular/material/sort';
 @Component({
   selector: 'demotable',
   standalone: true,
-  imports: [MatIconModule,MatTableModule,MatSort,MatPaginatorModule,MatSortModule,MatFormFieldModule,MatInputModule],
+  imports: [],
   templateUrl: './demotable.component.html',
   styleUrl: './demotable.component.scss'
 })
 
 
 export class DemotableComponent {
-  addListTableData : any[] = []
-  arraydata: any[] = [];
-  dataSourceTableData!: MatTableDataSource<any>;
-  displayedColums: string[] = ['Manufacturer','Model','four_year_resale_value','Sales_in_thousands'];
 
-  @ViewChild(MatPaginator, { static: true }) paginatorFordata!: MatPaginator
-  constructor(private apiService: ServiceTsService) {this.fetchData()}
-  async fetchData() {
-    try {
-      const data1 = await firstValueFrom(this.apiService.fetchData()); 
-      this.arraydata = data1;
-      this.addListTableData = JSON.parse(JSON.stringify(this.arraydata));
-     // console.log(this.arraydata[0].Manufacturer);
-      
-      this.dataSourceTableData = new MatTableDataSource(this.addListTableData);
-      this.dataSourceTableData.paginator = this.paginatorFordata
-      
-      
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-
-  }
-
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSourceTableData.filter = filterValue.trim().toLowerCase();
-  }
-  
 
   
 

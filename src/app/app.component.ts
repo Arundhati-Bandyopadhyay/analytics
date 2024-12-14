@@ -4,6 +4,7 @@ import { PageHeaderComponent } from './page-header/page-header.component';
 import { CommonModule } from '@angular/common';
 import { SidenavbarComponent } from './sidenavbar/sidenavbar.component';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
