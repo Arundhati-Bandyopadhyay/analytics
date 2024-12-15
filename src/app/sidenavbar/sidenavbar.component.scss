@@ -115,3 +115,16 @@ mat-sidenav-content{
   filter: brightness(5);
   filter: contrast(3)
 }
+.selected-item {
+  background-color: #04122b; /* Adjust the background color as needed */
+  color: whitesmoke;
+  
+
+}
+.mat-list-item.router-link-active {
+  @apply selected-item;
+}
+.mat-list-item.router-link-active {
+  background-color: #00008B;
+  color: white;
+}

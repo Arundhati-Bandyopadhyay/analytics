@@ -46,19 +46,33 @@ export class Demo2Component {
       ],
       // Series: Defines which chart type and data to use
       series: [
-        {
-          type: 'pie',
-          angleKey: 'iceCreamSales',
-          categoryKey: 'month',
-          calloutLabelKey: 'month',
-        sectorLabelKey: 'iceCreamSales',
-          label: {
-            enabled: true,
-            formatter: (params: { category: any; value: any; }) => {
-              return `${params.category}: ${params.value}`;
-            }
-          }
-        }
+        // {
+        //   type: 'pie',
+        //   angleKey: 'iceCreamSales',
+        //   categoryKey: 'month',
+        //   calloutLabelKey: 'month',
+        // sectorLabelKey: 'iceCreamSales',
+        //   label: {
+        //     enabled: true,
+        //     formatter: (params: { category: any; value: any; }) => {
+        //       return `${params.category}: ${params.value}`;
+        //     }
+        //   }
+        // }
+{
+        type: "pie",
+        angleKey: "iceCreamSales",
+        calloutLabelKey: "month",
+        sectorLabelKey: "iceCreamSales",
+        sectorLabel: {
+          color: "white",
+          fontWeight: "bold",
+          formatter: (params: { category: any; value: any; }) => {
+                   return `${params.category}: ${params.value}`;
+                 }
+        },
+
+      }
       ],
       
     };

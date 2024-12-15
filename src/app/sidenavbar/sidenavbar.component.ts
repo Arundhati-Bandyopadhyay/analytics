@@ -33,7 +33,7 @@ export class SidenavbarComponent {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
   isMobile: boolean = true;
-
+  selectedMenuItem: any;
   constructor(private observer: BreakpointObserver) {}
   ngOnInit() {
     this.observer.observe(['(max-width: 800px)']).subscribe((screenSize) => {
@@ -50,18 +50,34 @@ export class SidenavbarComponent {
   async toggleMenu() {
     if(this.isMobile){
       // this.sidenav.toggle();
-      this.isCollapsed = true; // On mobile, the menu can never be collapsed
+      this.isCollapsed = true;
+      //this.isCollapsed = false; // On mobile, the menu can never be collapsed
       console.log("Mobile seetings----");
       console.log("Toggle is: ", this.sidenav.toggle());
       console.log("isCollapsed ",this.isCollapsed);
     } else {
       this.sidenav.toggle(); // On desktop/tablet, the menu can never be fully closed
-      this.isCollapsed = !this.isCollapsed;
+      this.isCollapsed = false;
       console.log("Non-Mobile seetings----");
       console.log("Toggle is: ", this.sidenav.toggle());
       console.log("isCollapsed ",this.isCollapsed);
     }
   }
+  // toggleMenulist(item: any){
+  //   if (this.isMobile) {
+  //     if (this.selectedMenuItem === item) {
+  //       this.isCollapsed = false; // Collapse the navbar
+  //     } else {
+  //       this.selectedMenuItem = item;
+  //       this.isCollapsed = true; // Expand the navbar
+  //     }
+  //   } else {
+      
+  //   }
+  
+    
+  //   }
+  
   
   // -----------------------
   // sidnavcollapsed=signal(false);
@@ -71,8 +87,12 @@ export class SidenavbarComponent {
   // collapsed=signal(false)
   // logo=computed(()=>this.sidnavcollapsed()?'100':'10000')
   // sidenavwith=computed(()=>this.collapsed()?'65px':'250px')
+  selectItem(item:any){
+this.selectedMenuItem = item;
+  }
 
-  menuItems=signal<MenuItem[]>([
+  menuItems=signal<MenuItem[]>(
+   [
   {
     icon:"analytics",
     label:"Weekly Sales",
@@ -80,18 +100,18 @@ export class SidenavbarComponent {
   },
   {
     icon:"analytics",
-    label:"Analytics2",
+    label:"Analytics",
     route:"demo4"
   },
   {
     icon:"dashboard",
-    label:"Sales by Model",
+    label:"Monthly Sales",
     route:"demo2"
 
   },
   {
     icon:"view_array",
-    label:"Table Data",
+    label:"Graph Wise Data",
     route:"table"
   },
   {

@@ -57,6 +57,7 @@ export class DemoComponent {
   constructor(private api: MockServerService) {}
 
   getData() {
+    
     this.loading = true;
     this.api
       .getData()

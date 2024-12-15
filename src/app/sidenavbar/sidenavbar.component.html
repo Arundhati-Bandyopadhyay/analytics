@@ -16,9 +16,12 @@
     </mat-nav-list>
 
     <mat-nav-list>
-      <a mat-list-item *ngFor="let item of menuItems()" [routerLink]="item.route">
+      <a mat-list-item *ngFor="let item of menuItems()" 
+      [class.selected-item]="item === selectedMenuItem"
+      (click)="selectItem(item)" 
+      [routerLink]="item.route">
         <mat-icon [ngStyle]="{'color':'white'}" matListItemIcon>{{item.icon}}</mat-icon>
-        <span matListItemTitle class="label-color" *ngIf="!isCollapsed">{{item.label}}</span>
+        <span matListItemTitle class="label-color"  *ngIf="!isCollapsed">{{item.label}}</span>
       </a>
     </mat-nav-list>
   </mat-sidenav>
