@@ -1,0 +1,22 @@
+
+<div class="row">
+<form [formGroup]="Charts">
+                    <div class="col-sm-8">
+                      <label for=""  style="font-weight: bold;">Choose Chart Type:</label>
+                      <select class="form-select form-control-sm" formControlName="chartType"
+                      (change)="selectType()" >
+                       
+                        <option value="BAR">BAR</option>
+                        <option value="LINE">LINE</option>
+                        <!-- <option value="PIE">PIE</option> -->
+                        
+                      </select>
+                    </div>
+
+
+</form>
+</div>
+<div echarts [options]="options" style="height: 400px;" *ngIf="bar"></div>
+<div echarts [options]="options2" style="height: 400px;" *ngIf="linebar"></div>
+<div echarts [options]="options3" style="height: 400px;" *ngIf="line"></div>
+<!-- <div echarts [options]="options4" style="height: 400px;" *ngIf="pie"></div> -->

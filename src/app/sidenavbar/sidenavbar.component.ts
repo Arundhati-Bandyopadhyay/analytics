@@ -98,6 +98,17 @@ export class SidenavbarComponent {
     icon:"view_array",
     label:"Raw sales",
     route:"demo5"
-  }
+  },
+  {
+    icon:"view_array",
+    label:"charttable",
+    route:"charttable"
+  },
+  {
+    icon:"view_array",
+    label:"login",
+    route:"firebaselogin"
+  },
+
 ])
 }

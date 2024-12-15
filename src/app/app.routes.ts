@@ -9,6 +9,7 @@ import { Demo4Component } from './demo4/demo4.component';
 import { DemotableComponent } from './demotable/demotable.component';
 import { Demotable2Component } from './demotable2/demotable2.component';
 import { FirebaseLoginComponent } from './firebase-login/firebase-login.component';
+import { CharttableComponent } from './charttable/charttable.component';
 
 export const routes: Routes = [
     {
@@ -33,5 +34,8 @@ export const routes: Routes = [
     {
         path:"firebaselogin",
         component:FirebaseLoginComponent
+    },{
+        path:"charttable",
+        component:CharttableComponent
     }
 ];

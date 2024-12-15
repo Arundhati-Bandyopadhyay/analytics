@@ -1,23 +1,20 @@
-
 import { Component } from '@angular/core';
 import { NgxEchartsDirective, provideEchartsCore } from 'ngx-echarts';
 import { echarts } from '../custom-echart';
 import { ServiceTsService } from '../service.ts.service';
-import { firstValueFrom } from 'rxjs';
+import { filter, firstValueFrom } from 'rxjs';
 import { BarChart } from 'echarts/charts';
 import { UntypedFormBuilder, FormGroup, UntypedFormGroup } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { PieChart } from 'echarts/charts';
+echarts.use([PieChart]);
+
 import { AgGridAngular } from "ag-grid-angular";
 import { ColDef, RowSelectionOptions } from "ag-grid-community";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
-import { filter } from 'rxjs';
-import { PieChart } from 'echarts/charts';
-echarts.use([PieChart]);
-
-
 import { LegendComponent } from 'echarts/components';
 echarts.use([LegendComponent]);
 interface IRow {
@@ -27,20 +24,19 @@ interface IRow {
   electric: boolean;
 }
 
+
 @Component({
-  selector: 'demotable',
+  selector: 'charttable',
   standalone: true,
-  imports: [NgxEchartsDirective,FormsModule,ReactiveFormsModule,CommonModule],
-  templateUrl: './demotable.component.html',
-  styleUrl: './demotable.component.scss',
+  imports: [NgxEchartsDirective,FormsModule,ReactiveFormsModule,CommonModule,AgGridAngular],
+  templateUrl: './charttable.component.html',
+  styleUrl: './charttable.component.scss',
   providers: [provideEchartsCore({ echarts })],
 })
 
 
 
-
-
-export class DemotableComponent {
+export class CharttableComponent {
 
   Charts=new FormGroup({
     chartType:new FormControl('chartType')
@@ -50,34 +46,46 @@ export class DemotableComponent {
   linebar:boolean=false
   pie:boolean=false
 
-  charts!: UntypedFormGroup;
+  autoHeight = true;
+  addListTableData : any[] = []
   arraydata: any[] = [];
+  rowData: IRow[] = [];
+
+    
+  themeClass =
+      "ag-theme-quartz";
+  
+  charts!: UntypedFormGroup;
   options: any = {};
   options2: any = {};
   options3: any = {};
   options4: any = {};
   constructor(private apiService: ServiceTsService) {this.fetchData()}
-  selectType(){
-    if (this.Charts.controls['chartType'].value=='BAR') {
-      //console.log(this.Charts.controls['chartType'].value);
-      
-      this.bar=true
-      this.line=false
-      this.pie=false
-    } else if (this.Charts.controls['chartType'].value=='LINE'){
-      this.line=true
-      this.bar=false
-      this.pie=false
-    }else if (this.Charts.controls['chartType'].value=='PIE'){
-      this.line=false
-      this.bar=false
-      this.pie=true
-    }
-  }
+  columnDefs=[
+    {field:'Manufacturer',filter:true,floatingFilter:true},
+    {field:'Model',filter: true, floatingFilter: true},
+    {field:'Sales_in_thousands',filter: true, floatingFilter: true,headerName:"Sales in thousands"},
+    {field:'four_year_resale_value',editable: true,filter:true, floatingFilter: true,headerName: "Four year resale value"}
+  ]
+
+  defaultColDef: ColDef = {
+      flex: 1,
+  };
+  rowSelection: RowSelectionOptions | "single" | "multiple" = {
+    mode: "multiRow",
+    headerCheckbox: false,
+  };
+
+  pagination = true;
+  paginationPageSize = 10;
+  paginationPageSizeSelector: number[] | boolean = [5, 10, 25, 50];
+
+
   async fetchData() {
     try {
       const data1 = await firstValueFrom(this.apiService.fetchData()); 
       this.arraydata = data1;
+      this.rowData=data1
       console.log(this.arraydata.map(item => item.Vehicle_type))
       this.options = {
         title: {

@@ -52,6 +52,7 @@ export class Demotable2Component {
     {field:'Sales_in_thousands',filter: true, floatingFilter: true},
     {field:'four_year_resale_value',editable: true, floatingFilter: true,headerName: "Four year resale value"}
   ]
+  
 
   defaultColDef: ColDef = {
       flex: 1,

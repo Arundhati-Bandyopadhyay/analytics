@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+  }
+  
+  .div1, .div2{
+    flex: 1;
+    border: 1px solid black;
+    padding: 20px;
+  }
+  .ag-theme-quartz {
+    --ag-header-background-color: lightblue;
+    --ag-header-foreground-color: black;
+}
+
+  
+
+
+  
+  .ag-cell {
+    border: 1px solid gray;
+  }
+  @media (max-width: 768px) {
+    .ag-theme-quartz .ag-header-cell-text  {
+      font-size: 12px;
+      --ag-header-background-color: lightblue
+    }
+  }
