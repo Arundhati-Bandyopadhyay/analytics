@@ -1,1 +1,8 @@
-<button (click)="signInWithGoogle()">Sign in with Google</button>
+<button  class="sign-in" *ngIf="signinbtn" (click)="signInWithGoogle()">Sign in with Google</button>
+
+<button class="sign-out" *ngIf="signoutbtn" (click)="signOut()">Sign out with Google</button>
+
+<button  class="check-user" *ngIf="checkbtn"(click)="checkUser()">Check user</button>
+
+
+

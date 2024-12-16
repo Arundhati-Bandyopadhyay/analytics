@@ -57,7 +57,7 @@ export class SidenavbarComponent {
       console.log("isCollapsed ",this.isCollapsed);
     } else {
       this.sidenav.toggle(); // On desktop/tablet, the menu can never be fully closed
-      this.isCollapsed = false;
+      this.isCollapsed = !this.isCollapsed;
       console.log("Non-Mobile seetings----");
       console.log("Toggle is: ", this.sidenav.toggle());
       console.log("isCollapsed ",this.isCollapsed);
