@@ -1,0 +1,130 @@
+.example-container {
+    width: auto;
+    height: 600px;
+    margin: 10px;
+    border: 1px solid black;
+    /* The background property is added to clearly distinguish the borders between drawer and main
+       content */
+    background: grey;
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+   
+  }
+  .mat-toolbar{
+    background-color: rgb(2, 28, 60);
+  }
+
+  .content {
+padding: 24px;
+  }
+
+  .mat-toolbar{
+    position: relative;
+    z-index: 5;
+  }
+ .mat-sidenav-container{
+    height: calc(100vh - 64px);
+
+ }
+ .main-container{
+    background-color: rgb(246, 241, 241);
+ }
+ 
+ .mat-sidenav {
+    width: 250px;
+    background-color: rgb(53, 121, 216);
+    padding-top: 3.5rem;
+    @media screen and (min-width: 600px) {
+      padding-top: 4rem;
+    }
+
+    .entry{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding:0.75rem;
+    }
+ }
+ 
+// Move the content down so that it won't be hidden by the toolbar
+mat-sidenav-content{
+  padding-top: 2px;
+  @media screen and (min-width: 600px) {
+      padding-top: 2px;
+  }
+}
+ .container{
+    background-color: blue;
+ }
+.sidenav-header{
+    padding-top: 24px;
+    text-align: center;
+   
+}
+.header-text{
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color:white;
+    text-align: center;
+
+}
+.label-color{
+    color: white;
+}
+.hoverlist{
+    cursor: pointer;
+    background-color: gray;
+}
+.mat-icon{
+    color: white;
+}
+.img{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    // margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 25%;
+    height: 25%;
+    // mix-blend-mode: multiply;
+    filter: brightness(5);
+    filter: contrast(3)
+    
+}
+.hide-header-text{
+  opacity: 0;
+  height: 0px;
+}
+
+.expanded {
+  width: 220px;   
+}
+.notexpanded {
+  width: 3.5rem;   
+}
+
+.imgnotexpanded {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+  width: 2rem; 
+  filter: brightness(5);
+  filter: contrast(3)
+}
+.selected-item {
+  background-color: #7097dc; /* Adjust the background color as needed */
+  color: rgb(58, 4, 165);
+  
+
+}
+.mat-list-item.router-link-active {
+  @apply selected-item;
+}
+.mat-list-item.router-link-active {
+  background-color: #00008B;
+  color: white;
+}

@@ -1,0 +1,26 @@
+body {
+    background-color: #f0f8ff; /* Light blue background */
+    animation: colorChange 5s infinite;
+    display: flex; /* Center the content vertically and horizontally */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Make the body fill the viewport height */
+  }
+
+ 
+
+  h1 {
+    color: #007bff; /* Blue text color */
+    text-align: center;
+    font-size:80px ;
+    animation: slideIn 1s ease-in-out forwards;
+    font-weight: bold; /* Make text bold */
+    padding: 20px; /* Add padding around the text */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for the text */
+    border-radius: 5px; /* Rounded corners for the text box */
+  }
+
+  @keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to   { transform: translateX(0%); }
+  }

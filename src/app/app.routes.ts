@@ -11,12 +11,16 @@ import { Demotable2Component } from './demotable2/demotable2.component';
 import { FirebaseLoginComponent } from './firebase-login/firebase-login.component';
 import { CharttableComponent } from './charttable/charttable.component';
 import { SidenavbarComponent } from './sidenavbar/sidenavbar.component';
+import { NavComponent } from './nav/nav.component';
+import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
-    {
-        path:"firebaselogin",
-        component:FirebaseLoginComponent,
+    // {path: '', redirectTo: '/login', pathMatch: 'full' 
        
+    // },
+    {
+   path:"",
+   component:LoginComponent
     },
     {
         path:"demo",
@@ -43,5 +47,9 @@ export const routes: Routes = [
     },{
         path:"SidenavbarComponent",
         component:SidenavbarComponent
+    }
+    ,{
+        path:"nav",
+        component:NavComponent
     }
 ];

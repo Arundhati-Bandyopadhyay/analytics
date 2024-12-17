@@ -8,6 +8,6 @@ import { Observable } from 'rxjs';
 export class ServiceTsService {
   constructor(private http: HttpClient) { }
   fetchData(): Observable<any> {
-    return this.http.get('http://localhost:3000/api/csv');
+    return this.http.get('https://analytics-backend-z5tc.onrender.com/api/csv');
   }
 }

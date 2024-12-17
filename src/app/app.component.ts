@@ -6,6 +6,7 @@ import { SidenavbarComponent } from './sidenavbar/sidenavbar.component';
 import { FirebaseLoginComponent } from './firebase-login/firebase-login.component';
 import { inject } from '@angular/core';
 import { Router} from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import {
   getAuth,
   signInWithPopup,
@@ -13,6 +14,7 @@ import {
   UserCredential,
   signOut,
 } from 'firebase/auth';
+import { LoginComponent } from './login/login.component';
 
 // import { initializeApp } from 'firebase/app';
 
@@ -20,7 +22,7 @@ import {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,CommonModule,PageHeaderComponent,SidenavbarComponent,FirebaseLoginComponent],
+  imports: [RouterOutlet,CommonModule,PageHeaderComponent,SidenavbarComponent,FirebaseLoginComponent,LoginComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -31,6 +33,7 @@ export class AppComponent {
   signinbtn: boolean = true;
   signoutbtn: boolean = true;
   checkbtn: boolean = false;
+  isLoggedInnav:boolean=false
   
 
  
@@ -61,8 +64,10 @@ export class AppComponent {
         this.user = result.user;
         console.log(this.user);
         localStorage.setItem('isLoggedIn', 'true'); 
-        //this.route.navigate(['']);
+        this.route.navigate(['']);
         this.signinbtn=false
+        this.isLoggedInnav=true
+        
 
       })
       .catch((error) => {
@@ -76,6 +81,7 @@ export class AppComponent {
         console.error(error);
       });
   }
+  isLoggedIn: boolean = false;
 
   signOut() {
     const auth = getAuth();

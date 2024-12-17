@@ -19,15 +19,17 @@ type MenuItem={
 }
 
 @Component({
-  selector: 'sidenavbar',
+  selector: 'nav',
   standalone: true,
   imports: [CommonModule,MatSidenav,MatSidenavModule,
     MatToolbarModule,MatButtonModule,FormsModule
     ,MatIconModule,MatListModule,RouterModule,PageHeaderComponent],
-  templateUrl: './sidenavbar.component.html',
-  styleUrl: './sidenavbar.component.scss'
+  templateUrl: './nav.component.html',
+  styleUrl: './nav.component.scss'
 })
-export class SidenavbarComponent {
+
+
+export class NavComponent {
   isCollapsed: boolean = false;
   title = 'material-responsive-sidenav';
   @ViewChild(MatSidenav)
@@ -124,7 +126,12 @@ this.selectedMenuItem = item;
     label:"charttable",
     route:"charttable"
   },
-  
+  {
+    icon:"view_array",
+    label:"login",
+    route:"firebaselogin"
+  },
 
 ])
 }
+

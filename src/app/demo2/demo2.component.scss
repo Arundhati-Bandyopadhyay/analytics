@@ -1,0 +1,29 @@
+.parent {
+    display: flex;
+    
+  }
+
+  .chart-container {
+    display: flex;
+    width: 80%; 
+    max-width: 800px; 
+  }
+
+  .chart {
+    flex: 1; 
+    margin: 10px; 
+  }
+  .child{
+    flex: 1;
+    border: 1px solid black;
+    padding: 20px;
+  }
+  .container {
+    display: flex;
+  }
+  
+  .div1, .div2{
+    flex: 1;
+    border: 1px solid black;
+    padding: 20px;
+  }
